@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify</title>
+    <meta name="description" content="Taskify – your personal task manager, powered by Firebase.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="logo">
+            <div class="logo-icon"><i class='bx bx-check-square'></i></div>
+            <h1>Taskify</h1>
+        </div>
+        <div class="header-actions">
+            <button class="icon-btn" aria-label="Search"><i class='bx bx-search'></i></button>
+            <button class="icon-btn notification-btn" aria-label="Notifications">
+                <i class='bx bx-bell'></i>
+                <span class="notification-dot"></span>
+            </button>
+            <button class="btn btn-primary btn-new-task" id="btn-new-task">
+                <i class='bx bx-plus'></i> New Task
+            </button>
+            <div class="user-area" id="user-area">
+                <div class="user-avatar" id="user-avatar" title="Signed in user">
+                    <i class='bx bx-user'></i>
+                </div>
+                <span class="user-name" id="user-name"></span>
+                <button class="btn-signout" id="btn-signout" aria-label="Sign out" title="Sign out">
+                    <i class='bx bx-log-out'></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="auth-loading" id="auth-loading">
+        <div class="auth-loading-content">
+            <div class="loading-spinner"></div>
+            <p>Loading Taskify…</p>
+        </div>
+    </div>
+
+    <main class="app-main" id="app-main" style="display:none">
+        <section class="task-header">
+            <h2>Tasks</h2>
+            <p class="task-count" id="task-count">0 tasks remaining</p>
+        </section>
+        <section class="task-input-section">
+            <div class="input-wrapper">
+                <input type="text" id="new-task-input" placeholder="What needs to be done?" autocomplete="off">
+                <button type="button" id="add-task-btn" class="btn btn-secondary">
+                    <i class='bx bx-plus'></i> Add
+                </button>
+            </div>
+        </section>
+        <section class="task-filters">
+            <div class="filter-tabs" id="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active <span class="badge" id="badge-active">0</span></button>
+                <button class="filter-btn" data-filter="completed">Completed <span class="badge" id="badge-completed">0</span></button>
+            </div>
+            <button type="button" class="btn-clear" id="clear-completed-btn">Clear completed</button>
+        </section>
+        <section class="task-list-section">
+            <ul id="task-list" class="task-list"></ul>
+        </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
